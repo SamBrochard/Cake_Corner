@@ -1,0 +1,85 @@
+<div class="container content">
+    <div class="row">
+        <div class="col-xs-0 col-md-2"></div>
+        <form class="form-inline col-xs12 col-md-8">
+        </form>
+        <div class="col-xs-0 col-md-11"></div>
+        <div class="col-xs-0 col-md-1">
+        </div>
+        <form method="Post" id="FormEditArt" action="index.php?action=addArt" class="row col-xs-12 col-md-5 " enctype="multipart/form-data" id="formArt" >
+            <ul class="col-xs-12 col-md-12">
+                <div class="form-group">
+                    <li class="list-group-item">
+                        <label for="name" class="col-sm-5 control-label">Nouvel article</label>
+                        <input type="text" name="name" class="form-control" id="name" value="" >
+                        <p class="col-sm-5"> ou </p>
+                        <label for="nameEdit" class="col-sm-5 control-label">Modifier Article</label>
+                        <select name="article" class="form-control" id="selectArt">
+                            <option></option>
+                            <?php foreach ($articles as $article ): ?>
+                                <option  class="select" data-index="<?=$article['Id_article']?> "value="<?=$article['Id_article']?>"><?= $article['NameArticle'] ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                        <button type="submit" name="onChange" id="onChange" class="btn btn-primary">Choisir</button>
+                    </li>
+                    <li class="list-group-item">
+                        <label for="img1"  class=" control-label">Image principale :</label>
+                        <input type="file"  name="img1" id="img1"  >
+                        <label for="img2" class="control-label">Deuxième image :</label>
+                        <input type="file" name="img2" id="img2" >
+                        <label for="img3" class="control-label">Troisième image :</label>
+                        <input type="file" name="img3" id="img3" >
+                    </li>
+                    <li class="list-group-item">
+                        <label for="IdCat" class="control-label">Catégorie(s)</label></br>
+                        <?php foreach($cats as $cat):?>
+                            <label class="radio-inline">
+                                <input type="checkbox" name="IdCat[]"  value="<?= $cat['IdCat'] ?>"><?= $cat['Name'] ?>
+                            </label>
+                        <?php endforeach; ?>
+                    </li>
+                    <li class="list-group-item">
+                        <label for="description" class="control-label">Description:</label>
+                        <input type="text" id="description" class="form-control" value="" name="description">
+                    </li>
+                    <li class="list-group-item">
+                        <label for="weight" class="col-sm-2 control-label">Poids</label>
+                        <input type="text" id="weight" class="form-control"  value="exemple : 300g" name="weight">
+                    </li>
+                    <li class="list-group-item">
+                        <label for="price" class="col-sm-2 control-label">prix:</label>
+                        <input type="text" id="price" class="form-control" value="exemple: 12" name="price">
+                    </li>
+                    <li class="list-group-item">
+                        <input type="hidden" id="action" name="action" value="add"></li>
+                        <button type="submit" id="addArt" name="addArt" class="btn btn-primary" value="AddArt" >Ajouter/Modifier</button>
+                        <button type="submit" name="ClearArt" id="ClearArt" class="btn btn-primary">Effacer</button>
+                    </li>
+                </div>
+            </ul>
+        </form>
+        <div class="col-xs-0 col-md-1">
+        </div>
+        <form method="Post" action="index.php?action=addCat" class="row col-xs-12 col-md-5">
+            <ul >
+                <div class="form-group">
+                    <li class="list-group-item">
+                        <label for="nameCat" class="col-sm-5 control-label">Nouvelle catégorie</label>
+                        <input type="text" id="nameCat" class="form-control" value="" name="nameCat">
+                        <p class="col-sm-5"> ou </p>
+                        <label for="catlist" class="col-sm-5 control-label">Modifier catégorie</label>
+                        <select name="catlist" class="form-control" id="catlist" value="idCat">
+                            <?php foreach ($cats as $cat): ?>
+                                <option value="<?= $cat['IdCat']?>"><?= $cat['Name'] ?></option>
+                            <?php endforeach ?>
+                        </select>
+                        <button type="submit" name="onChangeCat" id="onChangeCat" class="btn btn-primary">Choisir</button>
+                    </li>
+                    <li class="list-group-item right">
+                        <input type="hidden" id="actionCat" name="actionCat" value="addCat"></li>
+                        <button type="submit" id="addCat" name="addCat"  id="addCat" class="btn btn-primary" value="addCat" > Ajouter/Modifer</button>
+                        <button type="submit" id="delCat" name="delCat"  id="delCat" class="btn btn-primary" value="DelCat" > Supprimer</button>
+                    </li>
+                </div>
+            </ul>
+        </form>

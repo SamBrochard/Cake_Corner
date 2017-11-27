@@ -1,0 +1,131 @@
+
+html,body{
+    height: 100%;
+    background-color: aliceblue;
+}
+
+ a{
+    background-color: aliceblue;
+    border-radius: 10px;
+}
+ .lihome{
+     background-color: aliceblue;
+     border: none;
+ }
+ .container{
+     width: auto;
+ }
+
+/**********************header******************/
+header{
+    margin: 1.5em 1em;
+    padding: 1em ;
+    border: 1px solid grey;
+}
+.logo{
+    border-radius: 5px;
+}
+header > .content{
+    padding: 0;
+}
+#headerlogo{
+
+    text-align: center;
+    padding-top: 2.5em;
+}
+.col-xs-7{
+    text-align: center;
+}
+#researchform{
+    padding: auto;
+}
+.navbar{
+    margin-bottom: 0;
+    background-color: aliceblue;
+}
+.navi{
+    margin-top: 1em;
+}
+    /*************main************************/
+main{
+    width: auto;
+    border-collapse: collapse;
+}
+main >.content{
+    padding: 0;
+}
+
+
+/*************footer**************/
+footer{
+    border: 1px solid grey;
+    margin: .5em 1em;
+    text-align: center;
+    padding: 1em;
+}
+/***********************************page home costumer *********************/
+/****************** div changeResult *******/
+.changeResult{
+    border: 1px solid grey;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+.formFilter > ul{
+    margin: 0;
+    padding: 0;
+
+}
+.filter-tag{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.formFilter .formOrder{
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+.researchform{
+    padding-top: 1em;
+}
+
+/*****************div result *****************/
+.result {
+    margin-top: 1em;
+
+}
+
+.article{
+    margin-top:.5em;
+    padding : .5em;
+    border: 1px solid grey;
+}
+
+.img {
+    margin: .25em;
+    border: 2px solid grey;
+    border-radius: 5px;
+    height: 90px;
+    width: auto;
+}
+
+/**************************page article *******************/
+article{
+    border: 1px solid grey;
+    padding: 2em;
+    margin-bottom: 1em;
+
+}
+.detail {
+    padding-top: 5em;
+    padding-left: 3em;
+}
+    /**************** Admin ************/
+.form-inline{
+    text-align: center;
+    margin-bottom: 1em;
+}
+.right > li{
+    margin-right: 0;
+}

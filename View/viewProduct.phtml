@@ -1,0 +1,57 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: samanthabrochard
+ * Date: 13/11/2017
+ * Time: 10:32
+ */
+?>
+
+<article>
+	<div class="container content">
+        <div class="row">
+            <section  class="col-xs-12 col-md-6 ">
+                <h3><?= $article['NameArticle']?> </h3>
+                <div class="col-xs-12 col-md-6">
+                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#myCarousel" data-slide-to="1"></li>
+                            <li data-target="#myCarousel" data-slide-to="2"></li>
+                        </ol>
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <img src="img/<?= $article['Img1'] ?>" class="img-responsive img">
+                            </div>
+
+                            <div class="item">
+                                <img src="img/<?= $article['Img2'] ?>"  class="img-responsive img">
+                            </div>
+
+                            <div class="item">
+                                <img src="img/<?= $article['Img2'] ?>"  class="img-responsive img">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="col-xs-12 col-md-6 row">
+                <section class="col-xs-12 col-md-6">
+                    <h4>Description du Produit.</h4>
+                    <p><?= $article['Description']?></p>
+                    <p><strong>Catégories attachées :</strong></p>
+                    <p><?php foreach ($article['cat']as $category): ?>
+                    <p> <?= $category; ?></p>
+                    <?php endforeach; ?>
+                </section>
+                <section class="col-xs-12 col-md-6 row detaille">
+                    <p><strong>Poids : </strong><?= $article['Weight']?> g</p>
+                    <p><strong>Prix TTC : </strong><?= $article['Price']?> euros</p>
+                </section>
+
+            </section>
+        </div>
+    </div>
+</article>

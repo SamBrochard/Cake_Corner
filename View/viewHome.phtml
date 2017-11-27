@@ -1,0 +1,84 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: samanthabrochard
+ * Date: 13/11/2017
+ * Time: 09:59
+ */
+?>
+
+<div class="container">
+    <div class="row">
+        </div>
+        <div id="changeResult" name="changeResult" class="container content changeResult">
+            <div class="row">
+                <div class="col-xs-12 col-md-9">
+                    <form id="formFilter" class="row col-xs-12 col-md-6 formFilter"  method="Post" >
+                        <h4>Filtrer par:</h4>
+                        <ul class="col-xs-12 col-md-12 row filter-tag">
+                            <?php foreach ($cats as $cat):?>
+                                <li class="list-group-item lihome">
+                                    <input type="radio" name="filter" data-filter ="<?= $cat['IdCat'];?>" class="filter" value="<?= $cat['IdCat'];?>">
+                                    <label for="cat<?= $cat['IdCat'];?>" ><?=$cat['Name'] ?></label>
+                                </li >
+                            <?php endforeach; ?>
+                        </ul>
+                    </form>
+                    <form id="formOrder" class="row col-xs-12 col-md-6 formOrder" method="Post" >
+                        <ul class="col-xs-12 col-md-12 row">
+                            <h4>Trier par:</h4>
+                            <li class="list-group-item lihome">
+                                <input type="radio" name="order" data-order="Weight" class="order" value="Weight">
+                                <label for="filter3" >Poids</label>
+                            </li>
+                            <li class="list-group-item lihome">
+                                <input type="radio" name="order" data-order="Price" class="order" value="Price">
+                                <label for="filter" >Prix</label>
+                            </li>
+                            <li class="list-group-item lihome">
+                                <button type="submit"  class="btn btn-primary" name="trier" id="order">Trier</button>
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+                <div class="col-xs-12 col-md-3 research">
+                    <div class="col-xs-12 ">
+                        <form id="researchform" method="get" class="form-inline researchform">
+                            <input class="research" id="research" type="text" placeholder="rechercher">
+                            <button type="button" name="gosearch" value="send" >Go</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="result" class="result">
+            <?php foreach ($articles as $article): ?>
+                <div class="row article">
+                    <div class="col-xs-12 col-md-4">
+                        <img src="img/<?=$article['Img1'] ?>" class="img-responsive img">
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+                        <p><strong><?=$article['NameArticle'] ?></strong></p>
+                        <p><strong>Description du produit:</strong></p>
+                        <p><?=$article['Description']?></p>
+                        <p><strong>Catégorie(s) :</strong></p>
+                        <p>
+
+                            <?php for ($i = 0; $i < count($article['cat']);$i++) : ?>
+                                 <?php if ($i <  count($article['cat'])- 1) :?>
+                                     <?= $article['cat'][$i];?> ;
+                                <?php else: ?>
+                                    <?= $article['cat'][$i]; ?>
+                                <?php endif; ?>
+                            <?php endfor; ?>
+                        </p>
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+                        <p><strong>Poids : </strong><?=$article['Weight']?> </p>
+                        <p><strong>Prix :</strong><?=$article['Price']?> Euros</p>
+                        <p><a href="index.php?action=product&id=<?=$article['Id_article']?>" >En savoir plus</a></p>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+    </div>
+</div>
