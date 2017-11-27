@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: samanthabrochard
- * Date: 12/11/2017
- * Time: 18:51
- */
 
 class DatabaseModel
 {
