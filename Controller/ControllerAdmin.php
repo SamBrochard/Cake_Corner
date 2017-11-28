@@ -90,4 +90,9 @@ class ControllerAdmin
         $this->category->delCat($idcat);
         $this->rel_art_cat->delRelbyCat($idcat);
     }
+
+    public function deconect(){
+        $_SESSION['mod'] = 'prod';
+        header('Location:index.php');
+    }
 }

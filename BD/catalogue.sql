@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le :  lun. 27 nov. 2017 à 15:39
+-- Généré le :  mar. 28 nov. 2017 à 00:56
 -- Version du serveur :  5.6.35
 -- Version de PHP :  7.1.8
 
@@ -94,6 +94,25 @@ INSERT INTO `rel_art_cat` (`IdArt`, `IdCat`, `IdRel`) VALUES
 (21, 3, 45),
 (21, 8, 46);
 
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `user`
+--
+
+CREATE TABLE `user` (
+  `idUser` int(11) NOT NULL,
+  `login` varchar(20) NOT NULL,
+  `password` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `user`
+--
+
+INSERT INTO `user` (`idUser`, `login`, `password`) VALUES
+(1, 'login@login.com', 'mdp');
+
 --
 -- Index pour les tables déchargées
 --
@@ -120,6 +139,12 @@ ALTER TABLE `rel_art_cat`
   ADD KEY `relart` (`IdArt`) USING BTREE;
 
 --
+-- Index pour la table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`idUser`);
+
+--
 -- AUTO_INCREMENT pour les tables déchargées
 --
 
@@ -138,6 +163,11 @@ ALTER TABLE `category`
 --
 ALTER TABLE `rel_art_cat`
   MODIFY `IdRel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+--
+-- AUTO_INCREMENT pour la table `user`
+--
+ALTER TABLE `user`
+  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- Contraintes pour les tables déchargées
 --

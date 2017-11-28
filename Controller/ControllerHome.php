@@ -9,6 +9,7 @@
 require_once 'Model/ArticleModel.php';
 require_once 'Model/CategoryModel.php';
 require_once 'Model/Rel_Art_CatModel.php';
+require_once 'Model/UserModel.php';
 
 /**
 * 
@@ -18,12 +19,14 @@ class ControllerHome
     private $article;
     private $category;
     private $rel_art_cat;
+    private $user;
 
     public function __construct()
     {
        $this->article = new ArticleModel();
        $this->category = new CategoryModel();
        $this->rel_art_cat = new Rel_Art_CatModel();
+       $this->user = new UserModel();
     }
 
 /**
@@ -121,6 +124,14 @@ class ControllerHome
     function homeResearch($term){
          $name = $this->article->articleResearch($term);
          echo $result= json_encode(array('name'=>$name));
+    }
+
+    function connect($login,$mdp){
+        $user = $this->user->getUser($login,$mdp);
+        if ($user == true){
+            $_SESSION['mod']= 'dev';
+        }
+        header('Location:index.php');
     }
 }
 

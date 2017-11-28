@@ -68,7 +68,11 @@ class Router {
                 $term= $this->getParameter($_GET,term);
                 $this->ctrHome->homeResearch($term);
             }
-            elseif ($_GET['action']== 'research'){}
+            elseif ($_GET['action']== 'connect'){
+                $login = $this->getParameter($_POST,'login');
+                $mdp = $this->getParameter($_POST,'mdp');
+                $this->ctrHome->connect($login,$mdp);
+            }
             else{
 
                 throw new Exception("Action non valide");
@@ -149,6 +153,9 @@ class Router {
                 elseif($_GET['action'] == 'delCat') {
                     $id =$this->getParameter($_POST,'catlist');
                     $this->ctrAdmin->delCat($id);
+                }
+                elseif ($_GET['action']='deconect'){
+                    $this->ctrAdmin->deconect();
                 }
 
             }else{
